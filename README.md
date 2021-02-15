@@ -7,7 +7,7 @@ What Is Modified In My Fork -
 
 
 
-All The Credits To Real Owners Who Made And Modified This Amazing Bot. Sir lzzy12, ZeroCool Aka Jaskaran , Magneto And Some Unkown Users Of Git.
+All The Credits To Real Owners Who Made And Modified This Amazing Bot. Sir lzzy12,Sir ZeroCool Aka Jaskaran ,Sir Magneto And Some Unkown Users Of Git.
 I Am Just Doing The Modification For Personal Use.
 
 
