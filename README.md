@@ -3,11 +3,12 @@ What Is Modified In My Fork -
 2. Restart Command Also Works For Authorized Users In Authorized Chats.
 3. Added Ability To Do Speed Test Of The Host. (/speed Command).
 4. Update The Aria.sh To Support Multiple Trackers List. Currently Two
-5. Added Custom User Agent ,Peer Agent..Transmission For Now
+5. Added Custom User Agent ,Peer Agent..Transmission For Now.
 
 
 
 All The Credits To Real Owners Who Made And Modified This Amazing Bot. Sir lzzy12, ZeroCool Aka Jaskaran , Magneto And Some Unkown Users Of Git.
+I Am Just Doing The Modification For Personal Use.
 
 
 
