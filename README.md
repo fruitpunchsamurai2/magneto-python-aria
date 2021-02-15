@@ -1,3 +1,18 @@
+What Is Modified In My Fork -
+1. Nice Looking Status Message.
+2. Restart Command Also Works For Authorized Users In Authorized Chats.
+3. Added Ability To Do Speed Test Of The Host. (/speed Command) currently in beta.
+4. Update The Aria.sh To Support Multiple Trackers List. Currently Two
+5. Added Custom User Agent ,Peer Agent..Transmission For Now
+
+
+
+All The Credits To Real Owners Who Made And Modified This Amazing Bot. Sir lzzy12, ZeroCool Aka Jaskaran , Magneto And Some Unkown Users Of Git.
+
+
+
+
+
 # Important - Read these points first
 - Original repo is https://github.com/lzzy12/python-aria-mirror-bot
 - I have collected some cool features from various repositories and merged them in one.
