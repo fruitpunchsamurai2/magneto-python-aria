@@ -7,6 +7,7 @@ class _BotCommands:
         self.CancelMirror = 'cancel'
         self.CancelAllCommand = 'cancelall'
         self.ListCommand = 'list'
+        self.SpeedCommand = 'speed'
         self.StatusCommand = 'status'
         self.AuthorizeCommand = 'authorize'
         self.UnAuthorizeCommand = 'unauthorize'
