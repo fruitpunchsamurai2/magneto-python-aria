@@ -17,4 +17,4 @@ telegraph
 appdirs
 speedtest-cli
 messages
-speedtest
+
