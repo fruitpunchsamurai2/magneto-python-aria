@@ -15,3 +15,5 @@ git+https://gitlab.com/magneto261290/youtube-dl
 lxml
 telegraph
 appdirs
+speedtest-cli
+messages
