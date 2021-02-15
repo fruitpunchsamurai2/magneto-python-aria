@@ -1,7 +1,7 @@
 What Is Modified In My Fork -
 1. Nice Looking Status Message.
 2. Restart Command Also Works For Authorized Users In Authorized Chats.
-3. Added Ability To Do Speed Test Of The Host. (/speed Command) currently in beta.
+3. Added Ability To Do Speed Test Of The Host. (/speed Command).
 4. Update The Aria.sh To Support Multiple Trackers List. Currently Two
 5. Added Custom User Agent ,Peer Agent..Transmission For Now
 
