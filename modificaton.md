@@ -18,7 +18,7 @@ You Can Find `__main__.py` File Here ⬇️
 ```
 MirrorX/bot/__main__.py
 or
-https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md/blob/master/bot/__main__.py
+https://github.com/iamLiquidX/MirrorX/blob/master/bot/__main__.py
 ```
 In Order to Customise the way you want the start Message of Bot,  modify  `line 46` & `line 47` from `__main__.py` file 
 
@@ -40,7 +40,7 @@ You Can Find `bot_commands.py` File Here ⬇️
 ```
 MirrorX/bot/helper/telegram_helper/bot_commands.py
 or
-https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md/blob/master/bot/helper/telegram_helper/bot_commands.py
+https://github.com/iamLiquidX/MirrorX/blob/master/bot/helper/telegram_helper/bot_commands.py
 ```
 ### Example :
 I Changed My Bot Commands Like Following. You Can easily understand by looking at & edit as you want them.
@@ -72,7 +72,7 @@ You Can Find the `aria2_download.py` file Here ⬇️
 ```
 MirrorX/bot/helper/mirror_utils/download_utils/aria2_download.py
 or
-https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md/blob/master/bot/helper/mirror_utils/download_utils/aria2_download.py
+https://github.com/iamLiquidX/MirrorX/blob/master/bot/helper/mirror_utils/download_utils/aria2_download.py
 ```
 The Line Which You Have to Edit is `Line 65` 
 🔗 [Line 65 can be opened from here](https://github.com/iamLiquidX/MirrorX/blob/097a69e3b7aa7e8aad0c91de8b07877933ef6f34/bot/helper/mirror_utils/download_utils/aria2_download.py#L65)
@@ -92,7 +92,7 @@ You Can Find `__main__.py` File Here ⬇️
 ```
 MirrorX/bot/__main__.py
 or
-https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md/blob/master/bot/__main__.py
+https://github.com/iamLiquidX/MirrorX/blob/master/bot/__main__.py
 ```
 The Lines Which You Have to Edit are from  `Line 31` to `Line 39` . You can Customise the emojis and Words .
 ### Note: Don't Change Anything Which is written in `{ }` , Unless you know what you are doing.
@@ -106,7 +106,7 @@ You Can Find `bot_utils.py` File Here ⬇️
 ```
 MirrorX/bot/helper/ext_utils/bot_utils.py
 or
-https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md/blob/master/bot/helper/ext_utils/bot_utils.p
+https://github.com/iamLiquidX/MirrorX/blob/master/bot/helper/ext_utils/bot_utils.py
 ```
 🔗 [Line 17 to 23 can be opened from here](https://github.com/iamLiquidX/MirrorX/blob/097a69e3b7aa7e8aad0c91de8b07877933ef6f34/bot/helper/ext_utils/bot_utils.py#L17)
 
@@ -118,7 +118,7 @@ You Can Find `bot_utils.py` File Here ⬇️
 ```
 MirrorX/bot/helper/ext_utils/bot_utils.py
 or
-https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md/blob/master/bot/helper/ext_utils/bot_utils.p
+https://github.com/iamLiquidX/MirrorX/blob/master/bot/helper/ext_utils/bot_utils.py
 ```
 🔗 [Line 27](https://github.com/iamLiquidX/MirrorX/blob/097a69e3b7aa7e8aad0c91de8b07877933ef6f34/bot/helper/ext_utils/bot_utils.py#L27)
 In Line 27 Replace `▓` with the character of your Choice. This Character is Seen When Download Completes.
@@ -139,7 +139,7 @@ You Can Find `bot_utils.py` File Here ⬇️
 ```
 MirrorX/bot/helper/ext_utils/bot_utils.py
 or
-https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md/blob/master/bot/helper/ext_utils/bot_utils.p
+https://github.com/iamLiquidX/MirrorX/blob/master/bot/helper/ext_utils/bot_utils.py
 ```
 ### Note: Don't Change Anything Which is written in `{ }` , Unless you know what you are doing.
 
@@ -155,7 +155,7 @@ You Can Find `mirror.py` File Here ⬇️
 ```
 MirrorX/bot/modules/mirror.py
 or
-https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md/blob/master/bot/modules/mirror.py
+https://github.com/iamLiquidX/MirrorX/blob/master/bot/modules/mirror.py
 ```
 🔗 [Line 149](https://github.com/iamLiquidX/MirrorX/blob/097a69e3b7aa7e8aad0c91de8b07877933ef6f34/bot/modules/mirror.py#L149)
 
