@@ -144,6 +144,7 @@ Fill up rest of the fields. Meaning of each fields are discussed below:
 - **OWNER_ID** : The Telegram user ID (not username) of the owner of the bot
 - **AUTO_DELETE_MESSAGE_DURATION** : Interval of time (in seconds), after which the bot deletes it's message (and command message) which is expected to be viewed instantly. Note: Set to -1 to never automatically delete messages
 - **IS_TEAM_DRIVE** : (Optional field) Set to "True" if GDRIVE_FOLDER_ID is from a Team Drive else False or Leave it empty.
+- **AUTHORIZED_CHATS** : (Optional field) Write all the User and Group ID's you want to authorize Bot Separated by Space  (Example : "123456789 987654321 -1001234567890")  Bot Can Distinguish Between User ID and Group Id & Allow only users to Restart the bot while Group IDs can't Restart the Bot.
 - **USE_SERVICE_ACCOUNTS**: (Optional field) (Leave empty if unsure) Whether to use service accounts or not. For this to work see  "Using service accounts" section below.
 - **INDEX_URL** : (Optional field) Refer to https://github.com/maple3142/GDIndex/ The URL should not have any trailing '/'
 - **API_KEY** : This is to authenticate to your telegram account for downloading Telegram files. You can get this from https://my.telegram.org DO NOT put this in quotes.
