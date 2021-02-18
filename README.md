@@ -1,16 +1,22 @@
-What Is Modified In My Fork -
-1. Nice Looking Status Message.
+
+# - What Modified In My Fork.
+1. Addded Mega Download Support For Complex And Big Size(100-200+) Folders.Read The Msg About Mega Download Below.
 2. Restart Command Also Works For Authorized Users In Authorized Chats.
 3. Added Ability To Do Speed Test Of The Host. (/speedtest Command).
 4. Update The Aria.sh To Support Multiple Trackers List. Currently Two
 5. Added Custom User Agent ,Peer Agent..Transmission For Now.
 
+# Important - About Mega Downloads.
+1. There Is No Max Size Limit For Mega Folder Or File
+2. If A Folder Fails To Download , Import It Into Your Mega Account And Create A Fresh Sharing Link. Weird But Works.
+3. If Mega Download Is Running, Don't Put Torrents Or Direct Link Mirror With It , Crashes Sometime.
+4. We Recommand One Download At Time , If You Have Multicore Instance Or Vps You Can Try Multiple Download At A Time.
 
+# Another Important Thing, Always Give Credit. These People/Devs Have Worked Really Hard Without Incentive To Make These Awesome Bots. Give Them Respect.
 
-All The Credits To Real Owners Who Made And Modified This Amazing Bot. Sir lzzy12,Sir ZeroCool Aka Jaskaran ,Sir Magneto And Some Unkown Users Of Git.
+All The Credits To Real Owners Who Made And Modified This Amazing Bot. Sir lzzy12,Sir ZeroCool Aka Jaskaran ,Sir Magneto And Some Unkown Users Of Git. #Check Credits Below For Full Credit Details.
+
 I Am Just Doing The Modification For Personal Use.
-
-
 
 
 
@@ -29,7 +35,7 @@ Not for mega links and magnet/torrents
 ```
 - Rename Drive files
 
-Let's have some chit chat here - [@Magneto_chit_chat](https://t.me/magneto_chit_chat)
+Let's have some chit chat here - [@Magneto_chit_chat](https://t.me/magneto_chit_chat).
 Note :- it is not a Bot Support group. It's only for discussing rubbish things bcoz i want your help to learn coding 😜🤪.
 
 
