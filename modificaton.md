@@ -22,7 +22,7 @@ https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md/blob/master/bot
 ```
 In Order to Customise the way you want the start Message of Bot,  modify  `line 46` & `line 47` from `__main__.py` file 
 
-🔗 [Line 46 can be Opened from here](https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md/blob/master/bot/__main__.py#L46)
+🔗 [Line 46 can be Opened from here](https://github.com/iamLiquidX/MirrorX/blob/097a69e3b7aa7e8aad0c91de8b07877933ef6f34/bot/__main__.py#L46)
 
 ![start Message](https://i.ibb.co/7QmMWjM/start-message-init.png)
 
@@ -58,7 +58,7 @@ You can Set the Bot to Auto Cancel a Torrent, If No Seeders are Available by cha
 
 You Have to remove  `--bt-stop-timeout=1200` from `Line 17` in `aria.sh` file.
 
-🔗 [Line 17 Can be Opened from Here](https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md/blob/9b94f800e2e760f5664884d5c43a5dc6e8f55ce4/aria.sh#L17)
+🔗 [Line 17 Can be Opened from Here](https://github.com/iamLiquidX/MirrorX/blob/097a69e3b7aa7e8aad0c91de8b07877933ef6f34/aria.sh#L17)
 
 See the Below Image and Remove the High Lighted Text from `aria.sh`
 
@@ -75,7 +75,7 @@ or
 https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md/blob/master/bot/helper/mirror_utils/download_utils/aria2_download.py
 ```
 The Line Which You Have to Edit is `Line 65` 
-🔗 [Line 65 can be opened from here](https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md/blob/9b94f800e2e760f5664884d5c43a5dc6e8f55ce4/bot/helper/mirror_utils/download_utils/aria2_download.py#L65)
+🔗 [Line 65 can be opened from here](https://github.com/iamLiquidX/MirrorX/blob/097a69e3b7aa7e8aad0c91de8b07877933ef6f34/bot/helper/mirror_utils/download_utils/aria2_download.py#L65)
 
 ### Example: 
 This is How I Modified Auto Cancel Message. You Can Modify as You Like.
@@ -96,7 +96,7 @@ https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md/blob/master/bot
 ```
 The Lines Which You Have to Edit are from  `Line 31` to `Line 39` . You can Customise the emojis and Words .
 ### Note: Don't Change Anything Which is written in `{ }` , Unless you know what you are doing.
-🔗 [Line 31 to 39 can be opened from here](https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md/blob/9b94f800e2e760f5664884d5c43a5dc6e8f55ce4/bot/__main__.py#L31)
+🔗 [Line 31 to 39 can be opened from here](https://github.com/iamLiquidX/MirrorX/blob/097a69e3b7aa7e8aad0c91de8b07877933ef6f34/bot/__main__.py#L31)
 
 ![stats message](https://i.ibb.co/f0fMtV9/stats.png)
 
@@ -108,7 +108,7 @@ MirrorX/bot/helper/ext_utils/bot_utils.py
 or
 https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md/blob/master/bot/helper/ext_utils/bot_utils.p
 ```
-🔗 [Line 17 to 23 can be opened from here](https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md/blob/9b94f800e2e760f5664884d5c43a5dc6e8f55ce4/bot/helper/ext_utils/bot_utils.py#L17)
+🔗 [Line 17 to 23 can be opened from here](https://github.com/iamLiquidX/MirrorX/blob/097a69e3b7aa7e8aad0c91de8b07877933ef6f34/bot/helper/ext_utils/bot_utils.py#L17)
 
 ![MirrorStatus](https://i.ibb.co/pzYSym7/mirrorstatus.png)
 
@@ -120,13 +120,13 @@ MirrorX/bot/helper/ext_utils/bot_utils.py
 or
 https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md/blob/master/bot/helper/ext_utils/bot_utils.p
 ```
-🔗 [Line 27](https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md/blob/9b94f800e2e760f5664884d5c43a5dc6e8f55ce4/bot/helper/ext_utils/bot_utils.py#L27)
+🔗 [Line 27](https://github.com/iamLiquidX/MirrorX/blob/097a69e3b7aa7e8aad0c91de8b07877933ef6f34/bot/helper/ext_utils/bot_utils.py#L27)
 In Line 27 Replace `▓` with the character of your Choice. This Character is Seen When Download Completes.
 
-🔗 [Line 84](https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md/blob/9b94f800e2e760f5664884d5c43a5dc6e8f55ce4/bot/helper/ext_utils/bot_utils.py#L84)
+🔗 [Line 84](https://github.com/iamLiquidX/MirrorX/blob/097a69e3b7aa7e8aad0c91de8b07877933ef6f34/bot/helper/ext_utils/bot_utils.py#L84)
 In Line 84 Replace `▓` with the character of your Choice. This Character will Indicate the Downloaded Part.
 
-🔗 [Line 87](https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md/blob/9b94f800e2e760f5664884d5c43a5dc6e8f55ce4/bot/helper/ext_utils/bot_utils.py#L87)
+🔗 [Line 87](https://github.com/iamLiquidX/MirrorX/blob/097a69e3b7aa7e8aad0c91de8b07877933ef6f34/bot/helper/ext_utils/bot_utils.py#L87)
 In Line 84 Replace `░` with the character of your Choice. This Character Will Indicate the Incomplete Download Part
 
 ![Progress Bar](https://i.ibb.co/CWFLLgS/progress-bar.png)
@@ -157,7 +157,7 @@ MirrorX/bot/modules/mirror.py
 or
 https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md/blob/master/bot/modules/mirror.py
 ```
-🔗 [Line 149](https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md/blob/9b94f800e2e760f5664884d5c43a5dc6e8f55ce4/bot/modules/mirror.py#L149)
+🔗 [Line 149](https://github.com/iamLiquidX/MirrorX/blob/097a69e3b7aa7e8aad0c91de8b07877933ef6f34/bot/modules/mirror.py#L149)
 
 ![mirror.py](https://i.ibb.co/JtscvmM/mirror-py-init.png)
 
