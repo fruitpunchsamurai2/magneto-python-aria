@@ -2,7 +2,7 @@
 
 1. [Customising Bot /start Message](https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md#Customising-Bot-start-Message)
 2. [Changing Bot Commands](https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md#Changing-Bot-Commands)
-3. [Changing Max Allowed Downloads & Set Auto Cancel Time If No Seeders Available](https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md#Changing-Max-Allowed-Downloads-&-Set-Auto-Cancel-Time-If-No-Seeders-Available)
+3. [Changing Max Allowed Downloads & Set Auto Cancel Time If No Seeders Available](https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md#Changing-Max-Allowed-Downloads-and-Set-Auto-Cancel-Time-If-No-Seeders-Available)
 4. [Customising Bot Message When Bot Auto Cancels the Torrent Due to No Seeders are Available](https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md#Customising-Bot-Message-When-Bot-Auto-Cancels-the-Torrent-Due-to-No-Seeders-are-Available)
 5. [Customising Bot Stats Message](https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md#Customising-Bot-Stats-Message)
 6. [Customising Mirror Status](https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md#Customising-Mirror-Status)
@@ -47,7 +47,7 @@ I Changed My Bot Commands Like Following. You Can easily understand by looking a
 
 ![Bot_Commands](https://i.ibb.co/fHKCLN5/botcommands.png)
 
-# Changing Max Allowed Downloads & Set Auto Cancel Time If No Seeders Available
+# Changing Max Allowed Downloads and Set Auto Cancel Time If No Seeders Available
 :octocat: In Order to Change Max Allowable Torrents at a Time & Auto Cancel If No Seeders are Available, You Have to Edit `aria.sh` file
 
 ### Max Allowed Downloads
