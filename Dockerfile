@@ -1,4 +1,4 @@
-FROM lzzy12/mega-sdk-python:latest
+FROM iamliquidx/megasdk:latest
 
 WORKDIR /usr/src/app
 RUN chmod 777 /usr/src/app
