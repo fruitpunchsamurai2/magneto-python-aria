@@ -12,6 +12,18 @@
 3. If Mega Download Is Running, Don't Put Torrents Or Direct Link Mirror With It , Crashes Sometime.
 4. We Recommand One Download At Time , If You Have Multicore Instance Or Vps You Can Try Multiple Download At A Time.
 
+# [A Guide On How To Customise Bot Further for Personal Use.](https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md#a-guide-on-how-to-customise-bot-further-for-personal-use)
+### Added A Small Guide Which Has The Following :-
+1. [Customising Bot /start Message](https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md#Customising-Bot-start-Message)
+2. [Changing Bot Commands](https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md#Changing-Bot-Commands)
+3. [Changing Max Allowed Downloads & Set Auto Cancel Time If No Seeders Available](https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md#Changing-Max-Allowed-Downloads-and-Set-Auto-Cancel-Time-If-No-Seeders-Available)
+4. [Customising Bot Message When Bot Auto Cancels the Torrent Due to No Seeders are Available](https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md#Customising-Bot-Message-When-Bot-Auto-Cancels-the-Torrent-Due-to-No-Seeders-are-Available)
+5. [Customising Bot Stats Message](https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md#Customising-Bot-Stats-Message)
+6. [Customising Mirror Status](https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md#Customising-Mirror-Status)
+7. [Customising Mirror Progress Bar](https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md#Customising-Mirror-Progress-Bar)
+8. [Customising Bot status Message](https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md#Customising-Bot-status-Message)
+9. [Customising Bot After Download Complete Message](https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md#Customising-Bot-After-Download-Complete-Message)
+
 # Another Important Thing, Always Give Credit. These People/Devs Have Worked Really Hard Without Incentive To Make These Awesome Bots. Give Them Respect.
 
 All The Credits To Real Owners Who Made And Modified This Amazing Bot. Sir lzzy12,Sir ZeroCool Aka Jaskaran ,Sir Magneto And Some Unkown Users Of Git. #Check Credits Below For Full Credit Details.
