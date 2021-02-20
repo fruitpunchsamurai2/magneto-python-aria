@@ -126,7 +126,7 @@ Deploying is pretty much straight forward and is divided into several steps as f
 - Clone this repo:
 ```
 git clone https://github.com/iamLiquidX/MirrorX
-cd mirror-bot
+cd MirrorX
 ```
 
 - Install requirements
