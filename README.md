@@ -125,7 +125,7 @@ Deploying is pretty much straight forward and is divided into several steps as f
 
 - Clone this repo:
 ```
-git clone https://github.com/magneto261290/magneto-python-aria mirror-bot/
+git clone https://github.com/iamLiquidX/MirrorX
 cd mirror-bot
 ```
 
@@ -206,11 +206,11 @@ sudo dockerd
 ```
 - Build Docker image:
 ```
-sudo docker build . -t mirror-bot
+sudo docker build . -t mirrorx
 ```
 - Run the image:
 ```
-sudo docker run mirror-bot
+sudo docker run mirrorx
 ```
 
 # Using service accounts for uploading to avoid user rate limit
