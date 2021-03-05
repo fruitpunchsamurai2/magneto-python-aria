@@ -1,7 +1,7 @@
 
 # - What Modified In My Fork.
 1. Addded Mega Download Support For Complex And Big Size(100-200+) Folders.Read The Msg About Mega Download Below.
-2. Restart Command Also Works For Authorized Users In Authorized Chats.
+2. Added Support For UpToBox Links (Premium Account Needed).
 3. Added Ability To Do Speed Test Of The Host. (/speedtest Command).
 4. Update The Aria.sh To Support Multiple Trackers List. Currently Two
 5. Added Custom User Agent ,Peer Agent..Transmission For Now.
@@ -161,6 +161,7 @@ Fill up rest of the fields. Meaning of each fields are discussed below:
 - **INDEX_URL** : (Optional field) Refer to https://github.com/maple3142/GDIndex/ The URL should not have any trailing '/'
 - **API_KEY** : This is to authenticate to your telegram account for downloading Telegram files. You can get this from https://my.telegram.org DO NOT put this in quotes.
 - **API_HASH** : This is to authenticate to your telegram account for downloading Telegram files. You can get this from https://my.telegram.org
+- **UPTOBOX_TOKEN** : This is to download files using premium account of UpToBox. You can get this from https://uptobox.com/my_account
 - **MEGA_API_KEY**: Mega.nz api key to mirror mega.nz links. Get it from [Mega SDK Page](https://mega.nz/sdk)
 - **MEGA_EMAIL_ID**: Your email id you used to sign up on mega.nz for using premium accounts (Leave th)
 - **MEGA_PASSWORD**: Your password for your mega.nz account 
