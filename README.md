@@ -3,7 +3,7 @@
 1. Addded Mega Download Support For Complex And Big Size(100-200+) Folders.Read The Msg About Mega Download Below.
 2. Added Support For UpToBox Links (Premium Account Needed).
 3. Added Ability To Do Speed Test Of The Host. (/speedtest Command).
-4. Update The Aria.sh To Support Multiple Trackers List. Currently Two
+4. Added Support For Indian Streaming Sites Like Hotstar, Zee5, Mx Player, Voot, And Many Others........
 5. Added Custom User Agent ,Peer Agent..Transmission For Now.
 
 # Important - About Mega Downloads.
