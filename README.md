@@ -26,7 +26,7 @@
 
 # Another Important Thing, Always Give Credit. These People/Devs Have Worked Really Hard Without Incentive To Make These Awesome Bots. Give Them Respect.
 
-All The Credits To Real Owners Who Made And Modified This Amazing Bot. Sir lzzy12,Sir ZeroCool Aka Jaskaran ,Sir Magneto And Some Unkown Users Of Git. #Check Credits Below For Full Credit Details.
+All The Credits To Real Owners Who Made And Modified This Amazing Bot. Sir lzzy12,Sir ZeroCool Aka Jaskaran ,Sir Magneto, Nenokkadine And Some Unkown Users Of Git. #Check Credits Below For Full Credit Details.
 
 I Am Just Doing The Modification For Personal Use.
 
