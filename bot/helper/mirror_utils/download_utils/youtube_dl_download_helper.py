@@ -43,9 +43,7 @@ class YoutubeDLHelper(DownloadHelper):
         self.opts = {
             'progress_hooks': [self.__onDownloadProgress],
             'logger': MyLogger(self),
-            'usenetrc': True,
-            'external_downloader' : 'aria2c',
-            'allow_multiple_audio_streams' : True
+            'usenetrc': True
         }
         self.__download_speed = 0
         self.download_speed_readable = ''
