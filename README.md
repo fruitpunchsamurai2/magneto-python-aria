@@ -7,10 +7,7 @@
 5. Added Custom User Agent ,Peer Agent..Transmission For Now.
 
 # Important - About Mega Downloads.
-1. There Is No Max Size Limit For Mega Folder Or File
-2. If A Folder Fails To Download , Import It Into Your Mega Account And Create A Fresh Sharing Link. Weird But Works.
-3. If Mega Download Is Running, Don't Put Torrents Or Direct Link Mirror With It , Crashes Sometime.
-4. We Recommand One Download At Time , If You Have Multicore Instance Or Vps You Can Try Multiple Download At A Time.
+All Fixed , No Issues Whatsoever.
 
 # [A Guide On How To Customise Bot Further for Personal Use.](https://github.com/iamLiquidX/MirrorX/blob/master/modificaton.md#a-guide-on-how-to-customise-bot-further-for-personal-use)
 ### Added A Small Guide Which Has The Following :-
