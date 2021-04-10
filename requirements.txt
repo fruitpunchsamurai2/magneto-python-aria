@@ -4,6 +4,7 @@ beautifulsoup4
 google-api-python-client
 google-auth-httplib2
 google-auth-oauthlib
+js2py
 lxml
 psutil
 Pyrogram
