@@ -149,7 +149,7 @@ class MirrorListener(listeners.MirrorListeners):
             msg = f'<b>Filename : </b><code>{download_dict[self.uid].name()}</code>\n<b>Size : </b><code>{size}</code>'
             buttons = button_build.ButtonMaker()
             if SHORTENER is not None and SHORTENER_API is not None:
-                surl = requests.get('https://{}/api?api={}&url={}&format=text'.format(SHORTENER, SHORTENER_API, link)).text
+                surl = requests.get(f'https://{SHORTENER}/api?api={SHORTENER_API}&url={link}&format=text').text
                 buttons.buildbutton("⚡Drive Link⚡", surl)
             else:
                 buttons.buildbutton("⚡Drive Link⚡", link)
@@ -159,7 +159,7 @@ class MirrorListener(listeners.MirrorListeners):
                 if os.path.isdir(f'{DOWNLOAD_DIR}/{self.uid}/{download_dict[self.uid].name()}'):
                     share_url += '/'
                 if SHORTENER is not None and SHORTENER_API is not None:
-                    siurl = requests.get('https://{}/api?api={}&url={}&format=text'.format(SHORTENER, SHORTENER_API, share_url)).text
+                    siurl = requests.get(f'https://{SHORTENER}/api?api={SHORTENER_API}&url={share_url}&format=text').text
                     buttons.buildbutton("💥Index Link💥", siurl)
                 else:
                     buttons.buildbutton("💥Index Link💥", share_url)
