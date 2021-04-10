@@ -56,8 +56,7 @@ def restart(update, context):
         f.truncate(0)
         f.write(f"{restart_message.chat.id}\n{restart_message.message_id}\n")
     fs_utils.clean_all()
-    args = [executable, "-m", "bot"]
-    os.execle(executable, *args, os.environ)
+    os.execl(executable, executable, "-m", "bot")
 
 
 def ping(update, context):
