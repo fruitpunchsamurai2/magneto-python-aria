@@ -8,7 +8,7 @@
 # This Is A Telegram Bot Written In Python For Mirroring Files On The Internet To Our Beloved Google Drive.
 </p>
 
-Here Is The Things To Get You Started.👇
+Here Are Some Things To Get You Started.👇
 
 
 ## 👉[All The Feature Of This Bot Or What This Bot Can Do For You.](https://github.com/iamLiquidX/MirrorX/wiki/Feature-Or-What-This-Bot-Can-Do)
