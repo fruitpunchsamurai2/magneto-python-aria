@@ -1,4 +1,5 @@
 import speedtest
+import bot
 
 from bot.helper.telegram_helper.filters import CustomFilters
 from bot import dispatcher, AUTHORIZED_CHATS
