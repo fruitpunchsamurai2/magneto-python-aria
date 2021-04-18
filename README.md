@@ -63,7 +63,7 @@ This project is heavily inspired from @out386 's telegram bot which is written i
 - Shortener support
 - Extract password protected files (It's not hack, you have to enter password for extracting. LOL)
 
-- For extracting password protected files and using custom filename see these examples :-
+- For extracting password protected files, using custom filename and download from password protected index links see these examples :-
 > https://telegra.ph/Magneto-Python-Aria---Custom-Filename-Examples-01-20
 
 ## Bot commands to be set in botfather
