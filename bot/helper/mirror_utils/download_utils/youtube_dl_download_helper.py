@@ -36,7 +36,7 @@ class MyLogger:
 class YoutubeDLHelper(DownloadHelper):
     def __init__(self, listener):
         super().__init__()
-        self.__name = ""
+        self.name = ""
         self.__start_time = time.time()
         self.__listener = listener
         self.__gid = ""
