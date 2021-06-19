@@ -15,7 +15,13 @@ def countNode(update,context):
         gd = GoogleDriveHelper()
         result = gd.count(link)
         deleteMessage(context.bot,msg)
-        sendMessage(result,context.bot,update)
+        if update.message.from_user.username:
+            uname = f'@{update.message.from_user.username}'
+        else:
+            uname = f'<a href="tg://user?id={update.message.from_user.id}">{update.message.from_user.first_name}</a>'
+        if uname is not None:
+            cc = f'\n\nReq. By: {uname}'
+        sendMessage(result + cc, context.bot, update)
     else:
         sendMessage("Provide G-Drive Shareable Link to Count.",context.bot,update)
 
