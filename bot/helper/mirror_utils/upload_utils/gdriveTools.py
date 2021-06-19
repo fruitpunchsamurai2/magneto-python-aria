@@ -308,6 +308,8 @@ class GoogleDriveHelper:
 
     def clone(self, link):
         self.transferred_size = 0
+        self.total_files = 0
+        self.total_folders = 0
         try:
             file_id = self.getIdFromUrl(link)
         except (KeyError,IndexError):
@@ -579,3 +581,70 @@ class GoogleDriveHelper:
 
         else :
             return '', ''
+
+
+
+    def count(self, link):
+        self.total_bytes = 0
+        self.total_files = 0
+        self.total_folders = 0
+        try:
+            file_id = self.getIdFromUrl(link)
+        except (KeyError,IndexError):
+            msg = "Google drive ID could not be found in the provided link"
+            return msg
+        msg = ""
+        LOGGER.info(f"File ID: {file_id}")
+        try:
+            drive_file = self.__service.files().get(fileId=file_id, fields="id, name, mimeType, size",
+                                                   supportsTeamDrives=True).execute()
+            name = drive_file['name']
+            LOGGER.info(f"Counting: {name}")
+            if drive_file['mimeType'] == self.__G_DRIVE_DIR_MIME_TYPE:
+                self.gDrive_directory(**drive_file)
+                msg += f'<b>Name : </b><code>{name}</code>'
+                msg += f'\n<b>Size : </b>{get_readable_file_size(self.total_bytes)}'
+                msg += f"\n<b>Type : </b>Folder"
+                msg += f"\n<b>SubFolders : </b>{self.total_folders}"
+                msg += f"\n<b>Files : </b>{self.total_files}"
+            else:
+                msg += f'<b>Filename : </b><code>{name}</code>'
+                try:
+                    typee = drive_file['mimeType']
+                except:
+                    typee = 'File'    
+                try:
+                    self.total_files += 1
+                    self.gDrive_file(**drive_file)
+                    msg += f'\n<b>Size : </b><code>{get_readable_file_size(self.total_bytes)}</code>'
+                    msg += f"\n<b>Type : </b>{typee}"
+                    msg += f"\n<b>Files : </b>{self.total_files}"
+                except TypeError:
+                    pass
+        except Exception as err:
+            if isinstance(err, RetryError):
+                LOGGER.info(f"Total Attempts: {err.last_attempt.attempt_number}")
+                err = err.last_attempt.exception()
+            err = str(err).replace('>', '').replace('<', '')
+            LOGGER.error(err)
+            return err
+        return msg
+
+    def gDrive_file(self, **kwargs):
+        try:
+            size = int(kwargs['size'])
+        except:
+            size = 0
+        self.total_bytes += size
+
+    def gDrive_directory(self, **kwargs) -> None:
+        files = self.getFilesByFolderId(kwargs['id'])
+        if len(files) == 0:
+            return
+        for file_ in files:
+            if file_['mimeType'] == self.__G_DRIVE_DIR_MIME_TYPE:
+                self.total_folders += 1
+                self.gDrive_directory(**file_)
+            else:
+                self.total_files += 1
+                self.gDrive_file(**file_)

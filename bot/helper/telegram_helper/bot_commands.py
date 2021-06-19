@@ -8,6 +8,7 @@ class _BotCommands:
         self.CancelAllCommand = 'cancelall'
         self.ListCommand = 'list'
         self.SpeedCommand = 'speedtest'
+        self.CountCommand = 'count'
         self.StatusCommand = 'status'
         self.AuthorizeCommand = 'authorize'
         self.UnAuthorizeCommand = 'unauthorize'
