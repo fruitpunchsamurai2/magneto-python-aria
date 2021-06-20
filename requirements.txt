@@ -20,3 +20,5 @@ lxml
 telegraph
 speedtest-cli
 messages
+pybase64
+lk21

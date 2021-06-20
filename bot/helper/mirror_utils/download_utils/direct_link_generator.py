@@ -10,14 +10,19 @@ for original authorship. """
 
 import json
 import re
+import math 
 import urllib.parse
 from os import popen
 from random import choice
+from urllib.parse import urlparse
 
+import lk21
 import requests
 import logging
 from bot import UPTOBOX_TOKEN
 from bs4 import BeautifulSoup
+from lk21.extractors.bypasser import Bypass
+from base64 import standard_b64encode
 from js2py import EvalJs
 
 from bot.helper.ext_utils.exceptions import DirectDownloadLinkException
@@ -41,6 +46,12 @@ def direct_link_generator(link: str):
         return osdn(link)
     elif 'github.com' in link:
         return github(link)
+    elif 'fembed.com' in link:
+        return fembed(link)
+    elif 'femax20.com' in link:
+        return fembed(link)
+    elif 'feurl.com' in link:
+        return fembed(link)
     else:
         raise DirectDownloadLinkException(f'No Direct link function found for {link}')
 
@@ -199,3 +210,14 @@ def useragent():
         'lxml').findAll('td', {'class': 'useragent'})
     user_agent = choice(useragents)
     return user_agent.text
+
+def fembed(link: str) -> str:
+    """ Fembed direct link generator
+    Based on https://github.com/breakdowns/slam-mirrorbot """
+    bypasser = lk21.Bypass()
+    dl_url=bypasser.bypass_fembed(link)
+    lst_link = []
+    count = len(dl_url)
+    for i in dl_url:
+        lst_link.append(dl_url[i])
+    return lst_link[count-1]

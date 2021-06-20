@@ -15,6 +15,7 @@ from bot.helper.mirror_utils.status_utils import listeners
 from bot.helper.mirror_utils.status_utils.extract_status import ExtractStatus
 from bot.helper.mirror_utils.status_utils.tar_status import TarStatus
 from bot.helper.mirror_utils.status_utils.upload_status import UploadStatus
+from bot.helper.mirror_utils.status_utils.gdownload_status import DownloadStatus
 from bot.helper.mirror_utils.upload_utils import gdriveTools
 from bot.helper.telegram_helper.bot_commands import BotCommands
 from bot.helper.telegram_helper.filters import CustomFilters
@@ -26,6 +27,8 @@ import os
 import subprocess
 import threading
 import re
+import random
+import string
 
 ariaDlManager = AriaDownloadHelper()
 ariaDlManager.start_listener()
@@ -273,7 +276,26 @@ def _mirror(bot, update, isTar=False, extract=False):
     except DirectDownloadLinkException as e:
         LOGGER.info(f'{link}: {e}')
     listener = MirrorListener(bot, update, pswd, isTar, tag, extract)
-    if bot_utils.is_mega_link(link):
+    if bot_utils.is_gdrive_link(link):
+        if not isTar and not extract:
+            sendMessage(f"Use /{BotCommands.CloneCommand} To Copy File/Folder", bot, update)
+            return
+        res, size, name = gdriveTools.GoogleDriveHelper().clonehelper(link)
+        if res != "":
+            sendMessage(res, bot, update)
+            return
+        LOGGER.info(f"Download Name : {name}")
+        drive = gdriveTools.GoogleDriveHelper(name, listener)
+        gid = ''.join(random.SystemRandom().choices(string.ascii_letters + string.digits, k=12))
+        download_status = DownloadStatus(drive, size, listener, gid)
+        with download_dict_lock:
+            download_dict[listener.uid] = download_status
+        if len(Interval) == 0:
+            Interval.append(setInterval(DOWNLOAD_STATUS_UPDATE_INTERVAL, update_all_messages))
+        sendStatusMessage(update, bot)
+        drive.download(link)
+
+    elif bot_utils.is_mega_link(link):
         if BLOCK_MEGA_LINKS:
             sendMessage("Mega Links Are Blocked ✋", bot, update)
         else:
