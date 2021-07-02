@@ -4,12 +4,18 @@ import threading
 import time
 import random
 import string
+import subprocess
+import pkgutil
+import pathlib
+import sys
 
 import aria2p
+import requests
 import telegram.ext as tg
 from dotenv import load_dotenv
 from pyrogram import Client
 from telegraph import Telegraph
+from megasdkrestclient import MegaSdkRestClient, errors as mega_err
 
 import socket
 import faulthandler
@@ -43,6 +49,35 @@ try:
         exit()
 except KeyError:
     pass
+CWD = os.getcwd()
+ariaconfig = pkgutil.get_data("bot", "data/aria.conf").decode()
+dhtfile = pkgutil.get_data("bot", "data/dht.dat")
+dht6file = pkgutil.get_data("bot", "data/dht6.dat")
+with open("dht.dat", "wb+") as dht:
+    dht.write(dhtfile)
+with open("dht6.dat", "wb+") as dht6:
+    dht6.write(dhtfile)
+ariaconfig = ariaconfig.replace("/currentwd", str(CWD))
+try:
+    max_dl = getConfig("MAX_CONCURRENT_DOWNLOADS")
+except KeyError:
+    max_dl = "4"
+tracker_list = requests.get("https://raw.githubusercontent.com/XIU2/TrackersListCollection/master/all_aria2.txt").text
+ariaconfig += f"\nmax-concurrent-downloads={max_dl}\nbt-tracker={tracker_list}"
+
+with open("aria.conf", "w+") as ariaconf:
+    ariaconf.write(ariaconfig)
+
+ARIA_CHILD_PROC = None
+try:
+    ARIA_CHILD_PROC = subprocess.Popen(["aria2c", f"--conf-path={CWD}/aria.conf"])
+except FileNotFoundError:
+    LOGGER.error("Please install Aria2c, Exiting..")
+    sys.exit(0)
+except OSError:
+    LOGGER.error("Aria2c Binary might have got damaged, Please Check and reinstall..")
+    sys.exit(0)
+time.sleep(1)
 
 aria2 = aria2p.API(
     aria2p.Client(
@@ -85,6 +120,8 @@ try:
     DOWNLOAD_DIR = getConfig('DOWNLOAD_DIR')
     if not DOWNLOAD_DIR.endswith("/"):
         DOWNLOAD_DIR = DOWNLOAD_DIR + '/'
+    if not os.path.exists(DOWNLOAD_DIR):
+        os.makedirs(DOWNLOAD_DIR, 0o777)
     DOWNLOAD_STATUS_UPDATE_INTERVAL = int(getConfig('DOWNLOAD_STATUS_UPDATE_INTERVAL'))
     OWNER_ID = int(getConfig('OWNER_ID'))
     AUTO_DELETE_MESSAGE_DURATION = int(getConfig('AUTO_DELETE_MESSAGE_DURATION'))
@@ -92,7 +129,8 @@ try:
     TELEGRAM_HASH = getConfig('TELEGRAM_HASH')
 except KeyError as e:
     LOGGER.error("One or more env variables missing! Exiting now")
-    exit(1)
+    sys.exit()
+    # exit()
 
 LOGGER.info("Generating USER_SESSION_STRING")
 app = Client(':memory:', api_id=int(TELEGRAM_API), api_hash=TELEGRAM_HASH, bot_token=BOT_TOKEN)
@@ -110,19 +148,43 @@ try:
 except KeyError:
     logging.warning('UPTOBOX_TOKEN not provided!')
     UPTOBOX_TOKEN = None
+
 try:
-    MEGA_API_KEY = getConfig('MEGA_API_KEY')
+    MEGA_KEY = getConfig('MEGA_KEY')
 except KeyError:
-    logging.warning('MEGA API KEY not provided!')
-    MEGA_API_KEY = None
-try:
-    MEGA_EMAIL_ID = getConfig('MEGA_EMAIL_ID')
-    MEGA_PASSWORD = getConfig('MEGA_PASSWORD')
-    if len(MEGA_EMAIL_ID) == 0 or len(MEGA_PASSWORD) == 0:
-        raise KeyError
-except KeyError:
-    logging.warning('MEGA Credentials not provided!')
-    MEGA_EMAIL_ID = None
+    MEGA_KEY = None
+    LOGGER.info('MEGA API KEY NOT AVAILABLE')
+MEGA_CHILD_PROC = None
+if MEGA_KEY is not None:
+    try:
+        MEGA_CHILD_PROC = subprocess.Popen(["megasdkrest", "--apikey", MEGA_KEY])
+    except FileNotFoundError:
+        LOGGER.error("Please install Megasdkrest Binary, Exiting..")
+        sys.exit(0)
+    except OSError:
+        LOGGER.error("Megasdkrest Binary might have got damaged, Please Check ..")
+        sys.exit(0)
+    time.sleep(3)
+    mega_client = MegaSdkRestClient('http://localhost:6090')
+    try:
+        MEGA_USERNAME = getConfig('MEGA_USERNAME')
+        MEGA_PASSWORD = getConfig('MEGA_PASSWORD')
+        if len(MEGA_USERNAME) > 0 and len(MEGA_PASSWORD) > 0:
+            try:
+                mega_client.login(MEGA_USERNAME, MEGA_PASSWORD)
+            except mega_err.MegaSdkRestClientException as e:
+                logging.error(e.message['message'])
+                exit(0)
+        else:
+            LOGGER.info("Mega API KEY provided but credentials not provided. Starting mega in anonymous mode!")
+            MEGA_USERNAME = None
+            MEGA_PASSWORD = None
+    except KeyError:
+        LOGGER.info("Mega API KEY provided but credentials not provided. Starting mega in anonymous mode!")
+        MEGA_USERNAME = None
+        MEGA_PASSWORD = None
+else:
+    MEGA_USERNAME = None
     MEGA_PASSWORD = None
 try:
     INDEX_URL = getConfig('INDEX_URL')
