@@ -15,6 +15,8 @@ services:
         # for token and credential.json
         # - /home/someuser/mirrorx/token.pickle:/app/token.pickle
         # - /home/someuser/mirrorx/credential.json:/app/credentials.json
+        # Incase you want to add a netrc file to youtube-dl
+        # - /home/someuser/mirrorx/netrc:/root/.netrc
         # Dont edit the Container Directory (i.e Right Side one) as the bot runs in the same directory
 
     restart: unless-stopped
