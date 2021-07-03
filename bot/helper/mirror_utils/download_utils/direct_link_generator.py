@@ -10,12 +10,20 @@ for original authorship. """
 
 import json
 import re
+import math 
 import urllib.parse
 from os import popen
 from random import choice
+from urllib.parse import urlparse
 
+import lk21
 import requests
+import logging
+from bot import UPTOBOX_TOKEN
 from bs4 import BeautifulSoup
+from lk21.extractors.bypasser import Bypass
+from base64 import standard_b64encode
+from js2py import EvalJs
 
 from bot.helper.ext_utils.exceptions import DirectDownloadLinkException
 
@@ -32,38 +40,45 @@ def direct_link_generator(link: str):
         return cm_ru(link)
     elif 'mediafire.com' in link:
         return mediafire(link)
+    elif 'uptobox.com' in link:
+        return uptobox(link)
     elif 'osdn.net' in link:
         return osdn(link)
     elif 'github.com' in link:
         return github(link)
+    elif 'fembed.com' in link:
+        return fembed(link)
+    elif 'femax20.com' in link:
+        return fembed(link)
+    elif 'feurl.com' in link:
+        return fembed(link)
     else:
         raise DirectDownloadLinkException(f'No Direct link function found for {link}')
 
 
 def zippy_share(url: str) -> str:
-    """ ZippyShare direct links generator
-    Based on https://github.com/LameLemon/ziggy"""
-    dl_url = ''
+    link = re.findall("https:/.(.*?).zippyshare", url)[0]
+    response_content = (requests.get(url)).content
+    bs_obj = BeautifulSoup(response_content, "lxml")
+
     try:
-        link = re.findall(r'\bhttps?://.*zippyshare\.com\S+', url)[0]
-    except IndexError:
-        raise DirectDownloadLinkException("`No ZippyShare links found`\n")
-    session = requests.Session()
-    base_url = re.search('http.+.com', link).group()
-    response = session.get(link)
-    page_soup = BeautifulSoup(response.content, "lxml")
-    scripts = page_soup.find_all("script", {"type": "text/javascript"})
-    for script in scripts:
-        if "getElementById('dlbutton')" in script.text:
-            url_raw = re.search(r'= (?P<url>\".+\" \+ (?P<math>\(.+\)) .+);',
-                                script.text).group('url')
-            math = re.search(r'= (?P<url>\".+\" \+ (?P<math>\(.+\)) .+);',
-                             script.text).group('math')
-            dl_url = url_raw.replace(math, '"' + str(eval(math)) + '"')
-            break
-    dl_url = base_url + eval(dl_url)
-    name = urllib.parse.unquote(dl_url.split('/')[-1])
-    return dl_url
+        js_script = bs_obj.find("div", {"class": "center",}).find_all(
+            "script"
+        )[1]
+    except:
+        js_script = bs_obj.find("div", {"class": "right",}).find_all(
+            "script"
+        )[0]
+
+    js_content = re.findall(r'\.href.=."/(.*?)";', str(js_script))
+    js_content = 'var x = "/' + js_content[0] + '"'
+
+    evaljs = EvalJs()
+    setattr(evaljs, "x", None)
+    evaljs.execute(js_content)
+    js_content = getattr(evaljs, "x")
+
+    return f"https://{link}.zippyshare.com{js_content}"
 
 
 def yandex_disk(url: str) -> str:
@@ -113,6 +128,44 @@ def mediafire(url: str) -> str:
     return dl_url
 
 
+def uptobox(url: str) -> str:
+    try:
+        link = re.findall(r'\bhttps?://.*uptobox\.com\S+', url)[0]
+    except IndexError:
+        raise DirectDownloadLinkException("`No Uptobox links found`\n")
+    if UPTOBOX_TOKEN is None:
+        logging.error('UPTOBOX_TOKEN not provided!')
+    else:
+        check = 'https://uptobox.com/api/user/me?token=%s' % (UPTOBOX_TOKEN)
+        request = requests.get(check)
+        info = request.json()
+        premium = info["data"]["premium"]
+        try:
+            link = re.findall(r'\bhttp?://.*uptobox\.com/dl\S+', url)[0]
+            logging.info('Uptobox direct link')
+            dl_url = url
+        except:
+            if premium == 1:
+                file_id = re.findall(r'\bhttps?://.*uptobox\.com/(\w+)', url)[0]
+                file_link = 'https://uptobox.com/api/link?token=%s&file_code=%s' % (UPTOBOX_TOKEN, file_id)
+                req = requests.get(file_link)
+                result = req.json()
+                dl_url = result['data']['dlLink']
+            else:
+                file_id = re.findall(r'\bhttps?://.*uptobox\.com/(\w+)', url)[0]
+                file_link = 'https://uptobox.com/api/link?token=%s&file_code=%s' % (UPTOBOX_TOKEN, file_id)
+                req = requests.get(file_link)
+                result = req.json()
+                waiting_time = result["data"]["waiting"] + 1
+                waiting_token = result["data"]["waitingToken"]
+                _countdown(waiting_time)
+                file_link = 'https://uptobox.com/api/link?token=%s&file_code=%s&waitingToken=%s' % (UPTOBOX_TOKEN, file_id, waiting_token)
+                req = requests.get(file_link)
+                result = req.json()
+                dl_url = result['data']['dlLink']
+    return dl_url
+
+
 def osdn(url: str) -> str:
     """ OSDN direct links generator """
     osdn_link = 'https://osdn.net'
@@ -157,3 +210,14 @@ def useragent():
         'lxml').findAll('td', {'class': 'useragent'})
     user_agent = choice(useragents)
     return user_agent.text
+
+def fembed(link: str) -> str:
+    """ Fembed direct link generator
+    Based on https://github.com/breakdowns/slam-mirrorbot """
+    bypasser = lk21.Bypass()
+    dl_url=bypasser.bypass_fembed(link)
+    lst_link = []
+    count = len(dl_url)
+    for i in dl_url:
+        lst_link.append(dl_url[i])
+    return lst_link[count-1]

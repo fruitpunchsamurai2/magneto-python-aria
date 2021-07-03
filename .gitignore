@@ -1,9 +1,7 @@
 config.env
 *auth_token.txt
-*.pyc
 downloads/*
 download/*
-data*
 .vscode
 .idea
 *.json
@@ -11,3 +9,11 @@ data*
 authorized_chats.txt
 log.txt
 accounts/*
+*.pyc
+dht6.dat
+aria.conf
+.gitignore
+dht.dat
+build
+dist
+*.spec
