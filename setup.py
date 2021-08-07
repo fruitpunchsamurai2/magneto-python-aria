@@ -7,7 +7,7 @@ README = (CWD / "README.md").read_text()
 
 setup(
     name='MirrorX',
-    version='6.0.0',
+    version='6.0.1',
     packages=find_packages(),
     long_description=README,
     long_description_content_type="text/markdown",
@@ -19,29 +19,29 @@ setup(
     description='Telegram Mirror Bot',
     platforms="any",
     install_requires=[
-        "requests",
-        "appdirs",
-        "aria2p",
-        "progress",
-        "psutil",
-        "python-telegram-bot",
+        "requests==2.26.0",
+        "appdirs==1.4.4",
+        "aria2p==0.10.4",
+        "progress==1.6",
+        "psutil==5.8.0",
+        "python-telegram-bot==13.7",
         "google-api-python-client",
         "google-auth-httplib2",
         "google-auth-oauthlib",
-        "js2py",
-        "python-dotenv",
-        "tenacity",
-        "python-magic",
-        "beautifulsoup4",
+        "js2py==0.71",
+        "python-dotenv==0.19.0",
+        "tenacity==8.0.1",
+        "python-magic==0.4.24",
+        "beautifulsoup4==4.9.3",
         "Pyrogram",
         "TgCrypto",
         "yt-dlp",
-        "lxml",
-        "telegraph",
-        "speedtest-cli",
-        "messages",
-        "pybase64",
-        "lk21",
+        "lxml==4.6.3",
+        "telegraph==1.4.1",
+        "speedtest-cli==2.1.3",
+        "messages==0.5.0",
+        "pybase64==1.1.4",
+        "lk21==1.6.0",
         "megasdkrestclient"
     ],
     classifiers=[
@@ -56,12 +56,12 @@ setup(
     python_requires=">=3.7",
     entry_points={
         "console_scripts":[
-            "MirrorX = bot.__main__:main"
+            "MirrorXBot = bot.__main__:main"
         ]
 
     },
     package_data={
         "": ["data/*.dat", "data/aria.conf"],
     },
-    scripts=['bin/extract', 'bin/pextract'],
+    scripts=['bin/extract', 'bin/pextract', 'bin/MirrorX'],
 )

@@ -14,12 +14,10 @@ RUN if [ "$(uname -m)" = "aarch64" ] ; then \
     wget -q https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-${HOST_CPU_ARCH}-static.tar.xz && \
     tar -xf ff*.tar.xz && rm -rf *.tar.xz && \
     mv ff*/ff* /usr/local/bin/ && rm -rf ff* && \
-    wget -q https://github.com/viswanathbalusu/megasdkrest/releases/download/v0.1.0/megasdkrest-${HOST_CPU_ARCH} -O /usr/local/bin/megasdkrest && \
-    chmod a+x /usr/local/bin/megasdkrest && mkdir /app/ && chmod 777 /app/
-
-RUN pip3 install --no-cache-dir MirrorX
-
-RUN apt-get purge -yqq gcc && apt-get -y autoremove && rm -rf /var/lib/apt/lists/* && apt-get clean
+    wget -q https://github.com/viswanathbalusu/megasdkrest/releases/download/v0.1.1/megasdkrest-${HOST_CPU_ARCH} -O /usr/local/bin/megasdkrest && \
+    chmod a+x /usr/local/bin/megasdkrest && mkdir /app/ && chmod 777 /app/ && \
+    pip3 install --no-cache-dir MirrorX && \
+    apt-get purge -yqq gcc && apt-get -y autoremove && rm -rf /var/lib/apt/lists/* && apt-get clean
 
 WORKDIR /app
 

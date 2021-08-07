@@ -17,3 +17,4 @@ dht.dat
 build
 dist
 *.spec
+/venv/
