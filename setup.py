@@ -7,7 +7,7 @@ README = (CWD / "README.md").read_text()
 
 setup(
     name='MirrorX',
-    version='6.0.1',
+    version='6.0.2',
     packages=find_packages(),
     long_description=README,
     long_description_content_type="text/markdown",
@@ -25,9 +25,9 @@ setup(
         "progress==1.6",
         "psutil==5.8.0",
         "python-telegram-bot==13.7",
-        "google-api-python-client",
-        "google-auth-httplib2",
-        "google-auth-oauthlib",
+        "google-api-python-client==2.11.0",
+        "google-auth-httplib2==0.1.0",
+        "google-auth-oauthlib==0.4.5",
         "js2py==0.71",
         "python-dotenv==0.19.0",
         "tenacity==8.0.1",
