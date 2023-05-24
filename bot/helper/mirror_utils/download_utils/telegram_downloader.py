@@ -2,10 +2,7 @@ import logging
 import threading
 import time
 
-from pyrogram import Client
-
-from bot import LOGGER, download_dict, download_dict_lock, TELEGRAM_API, \
-    TELEGRAM_HASH, USER_SESSION_STRING
+from bot import LOGGER, download_dict, download_dict_lock, app
 from .download_helper import DownloadHelper
 from ..status_utils.telegram_download_status import TelegramDownloadStatus
 
@@ -23,10 +20,7 @@ class TelegramDownloadHelper(DownloadHelper):
         self.__name = ""
         self.__gid = ''
         self.__start_time = time.time()
-        self.__user_bot = Client(api_id=TELEGRAM_API,
-                                 api_hash=TELEGRAM_HASH,
-                                 session_name=USER_SESSION_STRING)
-        self.__user_bot.start()
+        self.__user_bot = app
         self.__is_cancelled = False
 
     @property
@@ -84,7 +78,7 @@ class TelegramDownloadHelper(DownloadHelper):
             if not self.__is_cancelled:
                 self.__onDownloadError('Internal error occurred')
 
-    def add_download(self, message, path):
+    def add_download(self, message, path, filename):
         _message = self.__user_bot.get_messages(message.chat.id, message.message_id)
         media = None
         media_array = [_message.document, _message.video, _message.audio]
@@ -96,9 +90,13 @@ class TelegramDownloadHelper(DownloadHelper):
             with global_lock:
                 # For avoiding locking the thread lock for long time unnecessarily
                 download = media.file_id not in GLOBAL_GID
-
+            if filename == "":
+                name = media.file_name
+            else:
+                name = filename
+                path = path + name
             if download:
-                self.__onDownloadStart(media.file_name, media.file_size, media.file_id)
+                self.__onDownloadStart(name, media.file_size, media.file_id)
                 LOGGER.info(f'Downloading telegram file with id: {media.file_id}')
                 threading.Thread(target=self.__download, args=(_message, path)).start()
             else:

@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  mirrorx:
+    image: ghcr.io/iamliquidx/mirrorx:latest
+    container_name: mirrorx
+    env_file:
+        # Should be filled up and should be kept in the same directory
+        - config.env
+    volumes:
+        # Make a folder in the host OS and keep SA(accounts folder) or token there
+        # syntax "host OS path":"where it should be mounted inside container" 
+        - /home/someuser/mirrorx/accounts:/app/accounts
+        # for Service Accounts ex: /home/someuser/mirrorx/accounts:/app/accounts 
+        # for token and credential.json
+        # - /home/someuser/mirrorx/token.pickle:/app/token.pickle
+        # - /home/someuser/mirrorx/credential.json:/app/credentials.json
+        # Incase you want to add a netrc file to youtube-dl
+        # - /home/someuser/mirrorx/netrc:/root/.netrc
+        # Dont edit the Container Directory (i.e Right Side one) as the bot runs in the same directory
+
+    restart: unless-stopped
+    # Restart policy, if container exits due to some error it will restart again
